@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableRow android:padding="10dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TextView
+        android:id="@+id/Rplace"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_weight="1"
+        android:text="القاعة"
+        android:textSize="22sp" />
+
+    <TextView
+        android:id="@+id/Rsubject"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_weight="1"
+        android:text="المادة"
+        android:textSize="22sp" />
+
+    <TextView
+        android:id="@+id/Rtime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_weight="1"
+        android:text="الموعد"
+        android:textSize="22sp" />
+
+    <TextView
+        android:id="@+id/Rday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_weight="1"
+        android:text="اليوم"
+        android:textSize="22sp" />
+
+</TableRow>

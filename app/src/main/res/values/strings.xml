@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">University Organizer</string>
+    <string name="day_dropdown_menue_hint">اليوم</string>
+
+    <string-array name="days_of_the_week_array">
+        <item>السبت</item>
+        <item>الأحد</item>
+        <item>الاثنين</item>
+        <item>الثلاثاء</item>
+        <item>الأربعاء</item>
+        <item>الخميس</item>
+    </string-array>
+
+    <string-array name="time_array">
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+
+</resources>
