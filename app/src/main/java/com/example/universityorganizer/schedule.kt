@@ -125,6 +125,7 @@ class schedule : AppCompatActivity() {
 
         dialog.findViewById<Button>(R.id.cancel_btn).setOnClickListener {
             dialog.dismiss()
+            //
         }
 
 
