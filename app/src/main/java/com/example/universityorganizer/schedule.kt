@@ -54,7 +54,6 @@ class schedule : AppCompatActivity() {
 
 
         val rowsNum: Int = tableData.getInt("number of rows",0)
-        Toast.makeText(this,"num of rows $rowsNum",Toast.LENGTH_SHORT).show()
 
         for(i in rowsNum..1){
 
@@ -82,6 +81,8 @@ class schedule : AppCompatActivity() {
         val rowsNum: Int = tableData.getInt("number of rows",0)
 
 
+        //this line was added to remove all the old views ,so the views wont be added multiple times
+        t.removeViewsInLayout(1,t.childCount-1)
         for(i in 1..rowsNum){
 
             val row = LayoutInflater.from(this).inflate(R.layout.table_row, null) as TableRow
@@ -181,23 +182,28 @@ class schedule : AppCompatActivity() {
         addSubjectDialog.findViewById<Button>(R.id.add_subject_to_list).setOnClickListener {
 
             var isSubjectExist = false
-            for (i in subjectsArray.indices){
+            if(!etSubject.text.isNullOrBlank()){
+                    for (i in subjectsArray.indices){
 
-                if(etSubject.text.toString() == subjectsArray[i]){
+                        if(etSubject.text.toString() == subjectsArray[i]){
 
-                    Toast.makeText(this,"المادة موجودة مسبقا !!",Toast.LENGTH_SHORT).show()
-                    isSubjectExist = true
-                    break
-                }
+                            Toast.makeText(this,"المادة موجودة مسبقا !!",Toast.LENGTH_SHORT).show()
+                            isSubjectExist = true
+                            break
+                        }
+                    }
+
+                    if(!isSubjectExist)
+                        subjectsArray.add(etSubject.text.toString())
+
+                    etSubject.text.clear()
+
+                    val sharedPreferences =  getSharedPreferences("tableData", Context.MODE_PRIVATE)
+                    sharedPreferences.edit().putStringSet("subjectsList",subjectsArray.toSet()).apply()
+                }else{
+                    Toast.makeText(this,"أكتب المادة التي تريدها أولا!! ",Toast.LENGTH_SHORT).show()
             }
 
-            if(!isSubjectExist)
-                subjectsArray.add(etSubject.text.toString())
-
-            etSubject.text.clear()
-
-            val sharedPreferences =  getSharedPreferences("tableData", Context.MODE_PRIVATE)
-            sharedPreferences.edit().putStringSet("subjectsList",subjectsArray.toSet()).apply()
 
         }
 
