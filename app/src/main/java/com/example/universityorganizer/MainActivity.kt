@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.widget.*
 import androidx.annotation.RequiresApi
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import com.example.universityorganizer.data.LectureDatabase
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
@@ -16,7 +17,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         updateDailyTable()
 
         val swipeToRefresh = findViewById<SwipeRefreshLayout>(R.id.swipe_to_refresh)
@@ -31,6 +31,13 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this,schedule::class.java)
             startActivity(intent)
         }
+
+
+        val x = LectureDatabase.getDatabase(this)
+        val repo = x.lectureDao()
+
+
+
     }
 
 
